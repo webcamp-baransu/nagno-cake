@@ -1,6 +1,6 @@
 <h1>商品編集</h1>
 <div class>
-<%= form_with model: @item, url:admin_items_path, method: :patch, local: true do |f| %>
+<%= form_with model: @item, url:admin_items_path(@item.id), method: :patch, local: true do |f| %>
   <div class="form-group">
     <%= f.label :image, "商品画像" %>
     <%= f.file_field :image, accept:"image/*" %>
@@ -18,13 +18,13 @@
     <%= f.text_field :genre, placeholder:"選択してください" %>
   </div>
   <div class="form-group">
-    <%= f.label :excluding_tax_price, "税込価格" %>
+    <%= f.label :excluding_tax_price, "税抜価格" %>
     <%= f.number_field :excluding_tax_price, min: 0, placeholder:"1000" %><span>円</span>
   </div>
   <div class="form-group">
     <%= f.label :item, "販売ステータス" %>
     <%= f.select :item, [['販売中',true],['販売停止中',false]] %>
   </div>
-  <div><%= f.submit "新規登録", class:"btn btn-success" %></div>
+  <div><%= f.submit "変更を保存", class:"btn btn-success" %></div>
 <% end %>
 </div>
