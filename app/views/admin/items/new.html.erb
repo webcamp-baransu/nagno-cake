@@ -1,4 +1,5 @@
 <h1>商品新規登録</h1>
+
 <div class>
 <%= form_with model: @item, url:admin_items_path, method: :post, local: true do |f| %>
   <div class="form-group">
@@ -15,7 +16,7 @@
   </div>
   <div class="form-group">
     <%= f.label :genre, "ジャンル" %>
-    <%= f.collection_select(:genre_id, @genres, :name, :name, {prompt:"--選択してください--"}) %>
+    <%= f.collection_select(:genre_id, @genres, :id, :name, {prompt:"--選択してください--"}) %>
   </div>
   <div class="form-group">
     <%= f.label :excluding_tax_price, "税抜価格" %>
