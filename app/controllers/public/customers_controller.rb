@@ -12,6 +12,16 @@ class Public::CustomersController < ApplicationController
   end
 
   def update
+    @customers_url = customer.find(params[:id])
+
+      if @customer.update(customer_params)
+      flash[:notice] = "successfully"
+      redirect_to customers_path(@customer.id)
+
+      else
+      render :show
+
+      end
 
   end
 
