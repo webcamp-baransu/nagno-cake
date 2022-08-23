@@ -11,4 +11,5 @@ class Order < ApplicationRecord
   銀行振込: 1}
 
   belongs_to :customer
+  has_many :order_details, dependent: :destroy
 end
