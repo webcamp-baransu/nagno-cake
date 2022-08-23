@@ -17,7 +17,9 @@
 	      <%= item.id %>
 	    </th>
 	    <th>
-	      <%= item.name %>
+	    	<%= link_to admin_item_path(item) do %>
+        <p><%= item.name %></p>
+        <% end %>
 	    </th>
 	    <th>
 	      <%= item.excluding_tax_price %>
