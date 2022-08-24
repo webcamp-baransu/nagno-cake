@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :customers,skip: [:passwords], controllers: {
-  registrations: "public/registrations",
-  sessions: 'public/sessions'
-}
+  
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
@@ -14,7 +11,7 @@ Rails.application.routes.draw do
     resources :items, except: [:destroy]
     resources :order_details, only: [:update]
   end
-  
+
    scope module: :public do
     root:to => "homes#top"
     get "/about" => "homes#about"
@@ -28,8 +25,13 @@ Rails.application.routes.draw do
     resources :cart_items, only: [:index, :update, :destroy, :create]
     delete "/cart_items/destroy_all" => "cart_items#destroy_all"
     resources :items, only: [:index, :show]
-    
-    
+
+
   end
+
+  devise_for :customers,skip: [:passwords], controllers: {
+    registrations: "public/registrations",
+    sessions: 'public/sessions'
+  }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
