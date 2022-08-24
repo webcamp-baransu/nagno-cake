@@ -1,11 +1,12 @@
 <div class="container mx-auto px-5">
+	<p id="notice"></p>
 	<h2>商品一覧</h2>
-	<div class="row">
-		<%= link_to new_admin_item_path, class: "col-xs-1 btn btn-secondary rounded-circle py-0" do %>
-			<p class="align-middle"><i class="fas fa-plus"></i></p>
+	<div class="text-right">
+		<%= link_to new_admin_item_path, class: "btn btn-secondary" do %>
+		<i class="fas fa-candy-cane"></i>
 		<% end %>
 	</div>
-	<table class="table table-hover">
+	<table class="table table-hover m-4">
 		<thead class="thead-light">
 			<tr>
 		  	<th>商品ID</th>

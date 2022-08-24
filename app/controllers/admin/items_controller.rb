@@ -6,7 +6,6 @@ class Admin::ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @genres = Genre.all
   end
 
   def show
@@ -15,21 +14,27 @@ class Admin::ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
-    @genres = Genre.all
     @item.save!
+
   end
 
   def create
-    item = Item.new(item_params)
-    item.save!
-    redirect_to admin_items_path
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to admin_items_path, notice: "You have created item successfully."
+    else
+      render :new
+    end
   end
 
   def update
-    item = Item.find(params[:id])
-    item.update(item_params)
-    item.save!
-    redirect_to admin_items_path(item.id)
+    @item = Item.find(params[:id])
+    @item.update(item_params)
+    if @item.save
+      redirect_to admin_items_path, notice: "You have updated item successfully."
+    else
+      render :edit
+    end
   end
 
   private
