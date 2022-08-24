@@ -9,6 +9,5 @@ class Item < ApplicationRecord
   validates :description, presence: true
   validates :genre_id, presence: true
   validates :excluding_tax_price, presence: true
-  validates :is_active, presence: true
   
 end
