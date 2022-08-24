@@ -1,2 +1,18 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+.field_with_errors {
+  display: contents;
+}
+
+
+nav.navbar {
+  min-height: 38px;
+  background-color: #ffe4b5;
+  background-image: none;
+}
+
+footer {
+  min-height: 50px;
+  background-color: #ffe4b5;
+}
