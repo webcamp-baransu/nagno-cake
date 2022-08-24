@@ -25,6 +25,11 @@ class Public::CustomersController < ApplicationController
 
   def withdrawa
    @customer = current_customer
+   @customer.update_columns(is_deleted: true)
+   if @customer.is_deleted == true
+      sign_out current_customer
+   end
+    redirect_to root_path
   end
 
   private
