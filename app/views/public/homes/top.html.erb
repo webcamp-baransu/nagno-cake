@@ -12,25 +12,57 @@
 
   <h3>新着商品</h3>
   <div class="album py-5 bg-light">
+
       <div class="row">
         <div class="col-md-3">
-         <% @items.each do |item| %>
-	 	 	<div class="row">
-        <div class="col-md-3">
-          <% if item.image.attached? %>
-            <%= image_tag item.image, size: "200x200" %>
-          <% else %>
-            <%= image_tag "no_image", size: "200x200" %>
-          <% end %>
+         <div class="card md-3 box-image">
+
              <div class="card-body">
                <p class="card-text">
-
-                 <%= link_to item_path(item) do %>
-            	 <p><%= item.name %></p>
-            	 <% end %>
-            	 <%= item.excluding_tax_price %>
+                 商品名<br>
+                 ¥105
                </p>
              </div>
          </div>
         </div>
-    <% end %>
+
+        <div class="col-md-3">
+          <div class="card md-3 box-image">
+
+             <div class="card-body">
+               <p class="card-text">
+                 商品名<br>
+                 ¥105
+               </p>
+             </div>
+         </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card md-3 box-image">
+
+             <div class="card-body">
+               <p class="card-text">
+                 商品名<br>
+                 ¥105
+               </p>
+             </div>
+         </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card md-3 box-image">
+
+             <div class="card-body">
+               <p class="card-text">
+                 商品名<br>
+                 ¥105
+               </p>
+             </div>
+         </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+
