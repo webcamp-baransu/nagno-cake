@@ -1,2 +1,30 @@
-<h1>Public::Items#index</h1>
-<p>Find me in app/views/public/items/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <h4>商品一覧</h4>
+  </div>
+
+	 	 	<% @items.each do |item| %>
+	 	 	<div class="row">
+        <div class="col-md-3">
+          <% if item.image.attached? %>
+            <%= image_tag item.image, size: "200x200" %>
+          <% else %>
+            <%= image_tag "no_image", size: "200x200" %>
+          <% end %>
+             <div class="card-body">
+               <p class="card-text">
+
+                 <%= link_to item_path(item) do %>
+            	 <p><%= item.name %></p>
+            	 <% end %>
+            	 <%= item.excluding_tax_price %>
+               </p>
+             </div>
+         </div>
+        </div>
+    <% end %>
+  </div>
+
+
+
+
