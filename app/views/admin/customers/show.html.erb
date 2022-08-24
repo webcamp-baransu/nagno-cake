@@ -1,7 +1,7 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col3">
-<h2>"<%= @customer.last_name + ' ' + @customer.first_name %>" さんの会員詳細</h2>
+<h2><%= @customer.last_name + ' ' + @customer.first_name %> さんの会員詳細</h2>
 </div>
 
 <table class="table mt-4">
@@ -35,7 +35,12 @@
 </tr>
 <tr>
   <th>会員ステータス</th>
-  <td><%= @customer.is_deleted %></td>
+  <td><% if @customer.is_deleted == false %>
+        <p>有効</p>
+        <% else %>
+        <p>退会</p>
+        <% end %>
+        </td>
 </tr>
 
 </table>
