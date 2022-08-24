@@ -1,2 +1,44 @@
-<h1>Public::Items#show</h1>
-<p>Find me in app/views/public/items/show.html.erb</p>
+<div class="container mx-auto px-5">
+  <h2>商品詳細</h2>
+  <div class="row">
+    <div class="col-md-3">
+      <% if @item.image.attached? %>
+        <%= image_tag @item.image, size: "200x200" %>
+      <% else %>
+        <%= image_tag "no_image", size: "200x200" %>
+      <% end %>
+    </div>
+    <div class="col-md-3">
+      <p>商品名</p>
+      <p>商品説明</p>
+      <p>ジャンル</p>
+      <p>税込価格（税抜価格）</p>
+      <p>販売ステータス</p>
+    </div>
+    <div class="col-md-3">
+      <p><%= @item.name %></p>
+      <p><%= @item.description %></p>
+      <p><%= @item.genre.name %></p>
+      <p><%= (@item.excluding_tax_price * 1.1).to_i %>(<%= @item.excluding_tax_price %>)円</p>
+      <p><% if @item.is_active == true %>
+	      販売中
+	      <% else %>
+	      販売停止中
+	      <% end %>
+	    </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-5">
+    <%= form_with model: @customer do |f| %>
+    <%= f.select :cart_items, [["1", "1"], ["２", "2"], ["3", "3"], ["4", "4"], ["5", "5"]], include_blank: "個数選択" %>
+
+    <%= f.submit 'カートに入れる'%>
+    <% end %>
+    </div>
+  </div>
+</div>
+
+
+

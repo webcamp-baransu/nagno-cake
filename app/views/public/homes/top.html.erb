@@ -14,54 +14,23 @@
   <div class="album py-5 bg-light">
       <div class="row">
         <div class="col-md-3">
-         <div class="card md-3 box-image">
-
-             <div class="card-body">
-               <p class="card-text">
-                 商品名<br>
-                 ¥105
-               </p>
-             </div>
-         </div>
-        </div>
-
+         <% @items.each do |item| %>
+	 	 	<div class="row">
         <div class="col-md-3">
-          <div class="card md-3 box-image">
-
+          <% if item.image.attached? %>
+            <%= image_tag item.image, size: "200x200" %>
+          <% else %>
+            <%= image_tag "no_image", size: "200x200" %>
+          <% end %>
              <div class="card-body">
                <p class="card-text">
-                 商品名<br>
-                 ¥105
+
+                 <%= link_to item_path(item) do %>
+            	 <p><%= item.name %></p>
+            	 <% end %>
+            	 <%= item.excluding_tax_price %>
                </p>
              </div>
          </div>
         </div>
-        <div class="col-md-3">
-          <div class="card md-3 box-image">
-
-             <div class="card-body">
-               <p class="card-text">
-                 商品名<br>
-                 ¥105
-               </p>
-             </div>
-         </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card md-3 box-image">
-
-             <div class="card-body">
-               <p class="card-text">
-                 商品名<br>
-                 ¥105
-               </p>
-             </div>
-         </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</main>
-
-
-
+    <% end %>
