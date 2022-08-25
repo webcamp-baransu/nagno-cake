@@ -1,4 +1,7 @@
+<div class="container ml-5">
+
 <h1>ジャンル一覧・追加</h1>
+<div class="row my-5">
 
 <div class>
 <%= form_with model: @genre, url: admin_genres_path, method: :post, local: true do |f| %>
@@ -7,7 +10,7 @@
   <%= f.submit "新規登録", class:"btn btn-success" %>
 <% end %>
 </div>
-
+</div>
 <table class="table">
 	<thead>
 		<tr>
@@ -30,3 +33,5 @@
 	  <% end %>
 	</tbody>
 </table>
+
+</div>
