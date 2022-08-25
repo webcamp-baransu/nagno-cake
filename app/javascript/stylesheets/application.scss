@@ -1,21 +1,39 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+
 
 .field_with_errors {
   display: contents;
 }
 
 
+* {
+  box-sizing: border-box;
+}
+
 nav.navbar {
   min-height: 38px;
   background-color: #ffe4b5;
   background-image: none;
+  font-family: 'Caveat', cursive;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
 }
 
 footer {
-  min-height: 50px;
-  background-color: #ffe4b5;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+  margin-top: auto;
+  padding: 30px 0;
+  background: #ffe4b5;
+  text-align: center;
+  font-family: 'Caveat', cursive;
 }
