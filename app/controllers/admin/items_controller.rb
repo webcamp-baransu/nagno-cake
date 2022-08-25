@@ -1,7 +1,7 @@
 class Admin::ItemsController < ApplicationController
 
   def index
-    @items = Item.all
+    @items = Item.page(params[:page])
   end
 
   def new
@@ -21,7 +21,8 @@ class Admin::ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to admin_items_path, notice: "You have created item successfully."
+      flash[:notice] = "商品の登録が完了しました"
+      redirect_to admin_items_path
     else
       render :new
     end
@@ -31,7 +32,8 @@ class Admin::ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item.update(item_params)
     if @item.save
-      redirect_to admin_items_path, notice: "You have updated item successfully."
+      flash[:notice] = "承認の更新が完了しました"
+      redirect_to admin_items_path
     else
       render :edit
     end

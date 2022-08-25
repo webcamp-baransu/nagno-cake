@@ -1,6 +1,6 @@
 <div class="container mx-auto px-5">
-	<p id="notice"></p>
-	<h2>商品一覧</h2>
+	<%= flash[:notice] %>
+	<h2 class="mt-2">商品一覧</h2>
 	<div class="text-right">
 		<%= link_to new_admin_item_path, class: "btn btn-secondary" do %>
 		<i class="fas fa-candy-cane"></i>
@@ -42,6 +42,10 @@
 	    	 </th>
 	  	 </tr>
 	     <% end %>
+	     
 		</tbody>
   </table>
+  <div class="justify-content-center">
+  <%= paginate @items %>
+  </div>
 </div>
