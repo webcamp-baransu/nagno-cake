@@ -27,10 +27,7 @@
             <% end %>
           </tbody>
           <table class="table border col-7 col-md-6 col-xl-4 my-5r">
-          <tr>
-            <th class="table-active">商品合計</th>
-            <td>¥<%= @total_price.to_s(:delimited) %></td>
-          </tr>
+         
           <tr>
             <th class="table-active">送料</th>
             <td>¥<%= @order.postage %></td>
@@ -38,6 +35,10 @@
           <tr>
             <th class="table-active">請求金額</th>
             <td>¥<%= @item_total_price.round.to_s(:delimited) %></td>
+          </tr>
+           <tr>
+            <th class="table-active">商品合計</th>
+            <td>¥<%= @total_price.to_s(:delimited) %></td>
           </tr>
         </table>
       </div>
