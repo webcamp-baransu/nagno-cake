@@ -6,4 +6,5 @@ class Admin::OrderDetailsController < ApplicationController
   else
    render :show, alert: "対応ステータスを更新できませんでした"
   end
+ end
 end
