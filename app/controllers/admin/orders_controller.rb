@@ -1,7 +1,7 @@
 class Admin::OrdersController < ApplicationController
-  
+
   before_action :set_order_detail, only: [:show, :update]
-  
+
   def show
     @order = Order.find(params[:id])
     @order_details = @order.order_details
