@@ -12,7 +12,6 @@
   </head>
 
   <body>
-    <div class="wrapper">
     <header class="shadow-sm">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
@@ -24,45 +23,45 @@
             <ul class="navbar-nav ml-auto">
             <% if customer_signed_in? %>
             <li class="nav-item">
-              <%= link_to "My page", customers_path, class: "nav-link text-dark" %>
+              <%= link_to "マイページ", customers_path, class: "nav-link text-dark" %>
             </li>
             <li class="nav-item">
-              <%= link_to "All items", items_path, class: "nav-link text-dark" %>
+              <%= link_to "商品一覧", items_path, class: "nav-link text-dark" %>
             </li>
             <li class="nav-item">
-              <%= link_to "Cart", cart_items_path, class: "nav-link text-dark" %>
+              <%= link_to "カート一覧", cart_items_path, class: "nav-link text-dark" %>
             </li>
             <li class="nav-item">
-              <%= link_to "Logout", destroy_customer_session_path, class: "nav-link text-dark" , method: :delete %>
+              <%= link_to "ログアウト", destroy_customer_session_path, class: "nav-link text-dark" , method: :delete %>
             <li class="nav-item">
           <% elsif admin_signed_in? %>
             <li class="nav-item">
-              <%= link_to "All items", admin_items_path, class: "nav-link text-dark" %>
+              <%= link_to "商品一覧", admin_items_path, class: "nav-link text-dark" %>
             </li>
             <li class="nav-item">
-              <%= link_to "Customers", admin_customers_path, class: "nav-link text-dark" %>
+              <%= link_to "会員一覧", admin_customers_path, class: "nav-link text-dark" %>
             </li>
             <li class="nav-item">
-              <%= link_to "Orders", admin_path, class: "nav-link text-dark" %>
+              <%= link_to "注文履歴一覧", admin_path, class: "nav-link text-dark" %>
             </li>
             <li class="nav-item">
-              <%= link_to "Genres", admin_genres_path, class: "nav-link text-dark" %>
+              <%= link_to "ジャンル一覧", admin_genres_path, class: "nav-link text-dark" %>
             </li>
             <li class="nav-item">
-              <%= link_to "Logout", destroy_admin_session_path, class: "nav-link text-dark" , method: :delete %>
+              <%= link_to "ログアウト", destroy_admin_session_path, class: "nav-link text-dark" , method: :delete %>
             </li>
           <% else %>
             <li class="nav-item">
               <%= link_to "About", about_path, class: "nav-link text-dark" %>
             </li>
             <li class="nav-item">
-              <%= link_to "All items", items_path, class: "nav-link text-dark" %>
+              <%= link_to "商品一覧", items_path, class: "nav-link text-dark" %>
             </li>
             <li class="nav-item">
-              <%= link_to "Sign up", new_customer_registration_path, class: "nav-link text-dark" %>
+              <%= link_to "新規登録", new_customer_registration_path, class: "nav-link text-dark" %>
             </li>
             <li class="nav-item">
-              <%= link_to "Login", new_customer_session_path, class: "nav-link text-dark" %>
+              <%= link_to "ログイン", new_customer_session_path, class: "nav-link text-dark" %>
             </li>
           <% end %>
             </ul>
@@ -70,12 +69,11 @@
         </div>
       </nav>
     </header>
-    <main class="py-5">
+    <main class="pt-5">
     <%= yield %>
     </main>
     <footer>
-      <p class="footer-text">Team Balance</p>
+      <p class="text-center">Team Balance</p>
     </footer>
-    </div>
   </body>
 </html>
