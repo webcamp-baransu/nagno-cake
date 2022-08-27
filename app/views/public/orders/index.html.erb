@@ -1,6 +1,6 @@
 <div class="container">
   <div class="col-12 col-md-10 col-lg-9 mx-auto">
-    <h1 class="m-1">注文履歴一覧</h1>
+    <h5 class="m-1">注文履歴一覧</h5>
     <div>
           <% if @orders.present? %>
       <table class="table text-center table-condensed mt-3">
@@ -19,7 +19,7 @@
             <% @orders.each do |order| %>
       <tr>
        　<td>
-            <%= order.created_at %>
+            <%= order.created_at.to_s(:datetime_jp) %>
         </td>
             <td><%= current_customer.postal_code+ current_customer.address+ current_customer.last_name + current_customer.first_name %></td>
             <td>

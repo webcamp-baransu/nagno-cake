@@ -1,9 +1,9 @@
 <div class="container">
   <div class="col-12 col-md-10 col-lg-9 mx-auto">
-    <h1 class="m-1">ショッピングカート</h1>
+    <h5 class="m-1">ショッピングカート</h5>
     <div>
       <% unless @cart_items.present? %>
-        <h5 class="my-4">カート内に何もありません(商品の追加は<%= link_to "こちら", items_path %>から)</h5>
+        <h6 class="my-4">カート内に何もありません(商品の追加は<%= link_to "こちら", items_path %>から)</h6>
       <% else %>
       <div>
         <table class="table text-center mt-3">
@@ -20,7 +20,7 @@
               <tr>
                 <td>
                   <%= link_to item_path(cart_item.item) do %>
-                    <%= image_tag cart_item.item.image, class: "mx-1 img-wrap-cart" %>
+                    <%= image_tag cart_item.item.image, class: "mx-1 img-wrap-cart", size: "200x200" %>
                     <%= cart_item.item.name %>
                   <% end %>
                 </td>
