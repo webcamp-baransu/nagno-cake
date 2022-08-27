@@ -2,7 +2,7 @@
   <div class="col-12 col-md-10 col-lg-9 mx-auto">
     <h1 class="m-1">注文履歴一覧</h1>
     <div>
-      <% if @orders.present? %>
+          <% if @orders.present? %>
       <table class="table text-center table-condensed mt-3">
         <thead>
           <tr>
@@ -16,7 +16,7 @@
           </tr>
         </thead>
         <tbody>
-           <% @orders.each do |order| %>
+            <% @orders.each do |order| %>
       <tr>
        　<td>
             <%= order.created_at %>
