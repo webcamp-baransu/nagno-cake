@@ -1,5 +1,5 @@
 <main>
-  <p id="notice"></p>
+
   <div class="container">
    <div class="row">
     <div class="mx-auto col-11 col-sm10 col-lg-8 col-xl-6">
@@ -11,58 +11,56 @@
     </p>
 
   <h3>新着商品</h3>
-  <div class="album py-5 bg-light">
 
       <div class="row">
         <div class="col-md-3">
-         <div class="card md-3 box-image">
 
              <div class="card-body">
                <p class="card-text">
-                 商品名<br>
-                 ¥105
+                 <%= @items.slice(-1).name%><br>
+                 <%= image_tag @items.slice(-1).image, size: "100x100" %>
+                 <%= @items.slice(-1).excluding_tax_price %>
                </p>
              </div>
          </div>
-        </div>
+
 
         <div class="col-md-3">
-          <div class="card md-3 box-image">
 
              <div class="card-body">
                <p class="card-text">
-                 商品名<br>
-                 ¥105
+                 <%= @items.slice(-2).name%><br>
+                 <%= image_tag @items.slice(-2).image, size: "100x100" %>
+                 <%= @items.slice(-2).excluding_tax_price %>
                </p>
              </div>
          </div>
-        </div>
+
         <div class="col-md-3">
-          <div class="card md-3 box-image">
 
              <div class="card-body">
                <p class="card-text">
-                 商品名<br>
-                 ¥105
+                 <%= @items.slice(-3).name%><br>
+                 <%= image_tag @items.slice(-3).image, size: "100x100" %>
+                 <%= @items.slice(-3).excluding_tax_price %>
                </p>
              </div>
          </div>
-        </div>
+
         <div class="col-md-3">
-          <div class="card md-3 box-image">
 
              <div class="card-body">
                <p class="card-text">
-                 商品名<br>
-                 ¥105
+                 <%= @items.slice(-4).name%><br>
+                 <%= image_tag @items.slice(-4).image, size: "100x100" %>
+                 <%= @items.slice(-4).excluding_tax_price %>
                </p>
              </div>
-         </div>
         </div>
       </div>
     </div>
   </div>
-</main>
+  </main>
 
 
 
