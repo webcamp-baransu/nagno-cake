@@ -1,4 +1,6 @@
 class Public::OrdersController < ApplicationController
+  before_action :authenticate_customer!
+  
   def new
     @order=Order.new
     @cart_items = CartItem.all
@@ -6,9 +8,9 @@ class Public::OrdersController < ApplicationController
     @address = current_customer.shipping_addresses
   end
 
-    
-   
-   
+
+
+
   def log
     @customer = Customer.find(current_customer.id)
     @cart_items = CartItem.all
@@ -22,8 +24,8 @@ class Public::OrdersController < ApplicationController
 			@order.name = current_customer.last_name + current_customer.first_name
 	 end
   end
-  
-    
+
+
 
   def thanx
   end
@@ -35,9 +37,9 @@ class Public::OrdersController < ApplicationController
   def show
    @order = Order.find(params[:id])
    @order_details = @order.order_details
-    
+
   end
-  
+
   def create
       @order = Order.new(order_params)
     @order.customer_id = current_customer.id
@@ -56,7 +58,7 @@ class Public::OrdersController < ApplicationController
     else
       redirect_to new_order_path
     end
-     
+
   end
    private
 

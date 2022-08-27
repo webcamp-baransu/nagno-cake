@@ -1,10 +1,9 @@
-<div class="container mt-5">
-  <div class="row">
-    <div class="col-md-8">
-    <h2>注文履歴詳細</h2>
-    </div>
+<div class="container">
+  <h5>注文履歴詳細</h5>
+  
 
-<div class="row-xs-7">
+<div class="row mb-5">
+  <div class="col-md-10">
     <table class="table">
       <tbody>
 <tr>
@@ -17,7 +16,7 @@
 </tr>
 <tr>
   <th>注文日</th>
-  <td><%= @order.created_at %></td>
+  <td><%= @order.created_at.to_s(:datetime_jp) %></td>
 </tr>
 <tr>
   <th>配送先</th>
@@ -40,10 +39,13 @@
 </tr>
 </tbody>
 </table>
+</div>
+</div>
 
-
+<div class="row">
+<div class="col-md-9">
 <table class="table">
-  <thead>
+  <thead class="thead-light">
     <tr>
       <th>商品名</th>
       <th>単価（税込）</th>
@@ -71,8 +73,7 @@
 
       <td>
         <%= form_with model: order_detail, url:admin_order_detail_path(order_detail.id), method: :patch do |f| %>
-        <%= f.hidden_field :order_detail_id , value: order_detail.id %>
-        <%= f.select :making_status, OrderDetail.making_statuses_i18n.invert, prompt: "#{order_detail.making_status}" %>
+        <%= f.select :making_status, OrderDetail.making_statuses_i18n.invert, {prompt: false} %>
         <%= f.submit "更新" , class: "btn btn-outline-success" %>
         <% end %>
       </td>
@@ -83,7 +84,7 @@
 </table>
 
   </div>
-  <div class="col-xs-4">
+  <div class="col-md-3">
     <%= render "billing", order: @order %>
   </div>
 </div>
