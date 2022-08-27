@@ -1,26 +1,25 @@
 <div class="container">
   <div class="row">
-    <h4>商品一覧</h4>
+    <h5>商品一覧</h5>
   </div>
-
+    <div class="item-wrap">
 	 	 	<% @items.each do |item| %>
-	 	 	<div class="row">
-        <div class="col-md-3">
+	 	 	  <div class="item-box">
           <% if item.image.attached? %>
             <%= image_tag item.image, size: "200x200" %>
           <% else %>
             <%= image_tag "no_image", size: "200x200" %>
           <% end %>
-             <div class="card-body">
-               <p class="card-text">
-
-                 <%= link_to item_path(item) do %>
-            	 <p><%= item.name %></p>
-            	 <% end %>
-            	 <%= item.excluding_tax_price %>
-               </p>
-             </div>
-         </div>
+          <div class="item-body">
+            <%= link_to item_path(item) do %>
+            <%= item.name %>
+            <% end %>
+          </div>
+          <div class="item-title">
+            <%= item.excluding_tax_price %>円
+          </div>
         </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
+    <%= paginate @items %>
+</div>

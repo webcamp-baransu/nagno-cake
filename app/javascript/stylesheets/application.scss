@@ -30,6 +30,17 @@ body {
   flex-direction: column;
 }
 
+.item-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item-box {
+  width: 200px;
+  height: 250px;
+  margin: 30px;
+}
+
 footer {
   margin-top: auto;
   padding: 30px 0;
