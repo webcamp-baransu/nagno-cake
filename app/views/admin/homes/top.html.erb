@@ -18,8 +18,10 @@
             <%= order.created_at %>
             <% end %>
         </td>
-        <td><%= order.customer.name %></td>
-        <td><%= order.order_details.amount %></td>
+        <td><%= order.customer.last_name + ' ' + order.customer.first_name %></td>
+
+        <td><%= order.order_details.sum(:amount) %></td>
+
         <td><%= order.status %></td>
 
       </tr>
