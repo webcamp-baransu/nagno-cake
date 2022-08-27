@@ -1,6 +1,10 @@
 <div class="container">
+  <div class="row">
+  <h5 class="m-1">ショッピングカート</h5>
+  
+  
   <div class="col-12 col-md-10 col-lg-9 mx-auto">
-    <h5 class="m-1">ショッピングカート</h5>
+    </div>
     <div>
       <% unless @cart_items.present? %>
         <h6 class="my-4">カート内に何もありません(商品の追加は<%= link_to "こちら", items_path %>から)</h6>
@@ -13,6 +17,7 @@
               <th>単価（税込）</th>
               <th>数量</th>
               <th>小計</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -20,19 +25,20 @@
               <tr>
                 <td>
                   <%= link_to item_path(cart_item.item) do %>
-                    <%= image_tag cart_item.item.image, class: "mx-1 img-wrap-cart", size: "200x200" %>
+                    <%= image_tag cart_item.item.image, class: "mx-1 img-wrap-cart", size: "75x75" %>
                     <%= cart_item.item.name %>
                   <% end %>
                 </td>
                 <td>¥<%= cart_item.item.excluding_tax_price.to_s(:delimited) %></td>
+                
                 <%= form_with model: cart_item do |f| %>
                   <td>
                     <%= f.select :amount, *[1..20] %>
                     <%= f.submit '変更', class: "btn btn-sm btn-outline-success mx-1" %>
-                    <%= link_to "削除", cart_item_path(cart_item), method: :delete, "data-confirm" => "本当に消しますか?", class: "btn btn-sm btn-outline-danger" %>
                   </td>
                 <% end %>
                 <td>¥<%= cart_item.item.add_tax_price * cart_item.amount %></td>
+                <td><%= link_to "削除", cart_item_path(cart_item), method: :delete, "data-confirm" => "本当に消しますか?", class: "btn btn-sm btn-outline-danger" %></td>
               </tr>
             <% end %>
             <tr>
