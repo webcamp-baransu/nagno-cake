@@ -16,7 +16,7 @@ class Public::OrdersController < ApplicationController
     @order.postage = 800
     @item_total_price = @cart_items.inject(0) { |sum, cart_item| sum + cart_item.sum_of_price }
     @total_price = @item_total_price + 800
-    if params[:order][:address_option] == "0"
+   if params[:order][:address_option] == "0"
 			@order.address = current_customer.address
 			@order.postal_code = current_customer.postal_code
 			@order.name = current_customer.last_name + current_customer.first_name
@@ -33,7 +33,9 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
-   
+   @order = Order.find(params[:id])
+   @order_details = @order.order_details
+    
   end
   
   def create
@@ -59,6 +61,6 @@ class Public::OrdersController < ApplicationController
    private
 
   def order_params
-    params.require(:order).permit(:name, :postal_code, :address, :postage, :total_payment, :payment_method, :order_status, )
+    params.require(:order).permit(:name, :postal_code, :address, :postage, :total_payment, :payment_method, :order_status, :created_at)
   end
 end
