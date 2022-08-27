@@ -4,14 +4,15 @@ class Admin::OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @order_details = @order.order_details
     @total_price = @order.total_payment - @order.postage
-    @order_details = OrderDetail.all
+   
   end
 
   def update
     @order = Order.find(params[:id])
     @order.update(order_params)
     flash[:notice] = "注文ステータスの変更をしました"
-    redirect_to admin_order_path(@order.id)
+    
+    redirect_to admin_order_path
   end
 
  private
