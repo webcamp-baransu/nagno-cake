@@ -1,2 +1,80 @@
-<h1>Public::Orders#log</h1>
-<p>Find me in app/views/public/orders/log.html.erb</p>
+<div class="container">
+  <h5>注文情報確認</h5>
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+        <h4 class="headline-blue">請求情報</h4>
+        <table class="table text-center">
+          <thead>
+            <tr>
+              <th>商品</th>
+              <th>価格（税込）</th>
+              <th>個数</th>
+              <th>小計</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @cart_items.each do |cart_item| %>
+              <tr>
+                <td class="text-left">
+                  <%= image_tag cart_item.item.image, size: "100x100", class: "mx-1 img-wrap-cart" %>
+                  <%= cart_item.item.name %>
+                </td>
+                <td>¥<%= cart_item.item.add_tax_price %></td>
+                <td><%= cart_item.amount %></td>
+                <td>¥<%= cart_item.sum_of_price.to_s(:delimited) %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+        
+   <div class="row justify-content-center">
+       
+
+   <div class="col-md-6">
+    <h4 class="headline-blue">支払情報</h4>
+    
+
+      <div class="mb-4 p-2 bg-light rounded">
+        <div class="my-3 px-2">
+          <h5>支払方法</h5>
+          <p><%= @order.payment_method %></p>
+        </div>
+        <h5>お届け先</h5>
+        <%= @order.postal_code %>
+            <%= @order.address %><br>
+            <%= @order.name %>
+           <div>
+          <%= form_with model: @order, url: orders_path do |f| %>
+            <%= f.hidden_field :postage, :value => 800 %>
+            <%= f.hidden_field :total_payment, :value => @total_price %>
+            <%= f.hidden_field :name %>
+            <%= f.hidden_field :postal_code %>
+            <%= f.hidden_field :address %>
+            <%= f.submit '  注文を確定する  ', class: "btn btn-outline-primary my-2 p-2" %>
+            <%= link_to '注文情報入力に戻る', new_order_path, class: "btn btn-outline-success my-2 p-2 text-left" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <br>
+      <br>
+        <table class="table border">
+          <tr>
+            <th class="table-active">送料</th>
+            <td>¥<%= @order.postage %></td>
+          </tr>
+          <tr>
+            <th class="table-active">商品合計</th>
+            <td>¥<%= @item_total_price.round.to_s(:delimited) %></td>
+          </tr>
+           <tr>
+            <th class="table-active">請求金額</th>
+            <td>¥<%= @total_price.to_s(:delimited) %></td>
+          </tr>
+        </table>
+    </div>
+  </div>
+</div>

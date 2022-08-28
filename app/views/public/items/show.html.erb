@@ -1,2 +1,39 @@
-<h1>Public::Items#show</h1>
-<p>Find me in app/views/public/items/show.html.erb</p>
+ <div class="container">
+  <h5>商品詳細</h5>
+  <div class="row justify-content-center">
+    <div class="col-md-3">
+      <% if @item.image.attached? %>
+ <%= image_tag @item.image, size: "200x200" %>
+      <% else %>
+        <%= image_tag "no_image", size: "200x200" %>
+      <% end %>
+    </div>
+    <div class="col-md-3">
+      <p>商品名</p>
+      <p>商品説明</p>
+      <p>ジャンル</p>
+      <p>税込価格（税抜価格）</p>
+      <p>販売ステータス</p>
+    </div>
+    <div class="col-md-3">
+      <p><%= @item.name %></p>
+      <p><%= @item.description %></p>
+      <p><%= @item.genre.name %></p>
+      <p><%= (@item.excluding_tax_price * 1.1).to_i %>(<%= @item.excluding_tax_price %>)円</p>
+      <p><% if @item.is_active == true %>
+	      販売中
+	      <% else %>
+	      販売停止中
+	      <% end %>
+	    </p>
+    </div>
+    </div>
+  <div class="row justify-content-center">
+<%= form_with model: @cart_item, url:cart_items_path, method: :post do |f| %>
+  <%= f.hidden_field :item_id, :value => @item.id %>
+  <%= f.select :amount, [['1個',1],['2個',2],['3個',3],['4個',4],['5個',5],['6個',6],['7個',7],['8個',8],['9個',9],['10個',10]], :prompt => "個数選択" %>
+  <%= f.submit "カートに入れる" %>
+<% end %>
+ 
+  </div>
+</div>
