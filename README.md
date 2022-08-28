@@ -4,6 +4,7 @@
 
 # アプリ画面
 
+<img width="1440" alt="スクリーンショット 2022-08-28 14 59 04" src="https://user-images.githubusercontent.com/108673696/187060038-5e1c7f9b-c0f7-4573-a4b1-d9ea1cf7bfaa.png">
 
 
 ## ## 開発環境
