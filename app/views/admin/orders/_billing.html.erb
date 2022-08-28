@@ -1,9 +1,5 @@
 <table class="table">
-  <br>
-  <br>
-  <br>
-  <br>
-  <tr>
+  <tr class="mt-10">
     <th><strong>商品合計</strong></th>
     <td><%= (order.total_payment - order.postage) %>円</td>
   </tr>
@@ -13,6 +9,6 @@
   </tr>
   <tr>
     <th><strong>請求金額合計</strong></th>
-    <td><%= order.total_payment %>円</td>
+    <td><strong><%= order.total_payment %>円<strong></td>
   </tr>
 </table>

@@ -2,8 +2,8 @@
 <h5>会員一覧</h5>
 <div class="row justify-content-center">
 <div class="col-md-8">
-<table class="table thead-light">
-  <thead class="thead-light">
+<table class="table">
+  <thead>
     <tr>
       <th>会員ID</th>
       <th>氏名</th>
@@ -17,7 +17,7 @@
       <tr>
 
         <td><%= customer.id %></td>
-        <td><%= link_to admin_customer_path(customer.id) do %>
+        <td><%= link_to admin_customer_path(customer.id), class: "text-dark" do %>
             <%= customer.last_name + ' ' + customer.first_name %>
             <% end %>
         </td>
@@ -32,7 +32,9 @@
     <% end %>
   </tbody>
 </table>
-<%= paginate @customers %>
 </div>
+</div>
+<div class="row justify-content-center">
+  <%= paginate @customers %>
 </div>
 </div>

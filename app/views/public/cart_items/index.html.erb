@@ -1,21 +1,14 @@
 <div class="container">
-  <div class="row">
-    <div class="col-5">
-    <h5 class="m-1">ショッピングカート</h5>
-    </div>
-    <div class="col-5">
-      <%= link_to "カートを空にする",cart_items_destroy_all_path, method: :delete, "data-confirm" => "カートを空にしますか?", class: "btn btn-danger" %>
-    </div>
-    </div>
-    
-    <div>
+  <h5 class="m-1">ショッピングカート</h5>
+  <div class="row justify-content-center">
+    <div class="col-md-10">
       <% unless @cart_items.present? %>
         <h6 class="my-4">カート内に何もありません(商品の追加は<%= link_to "こちら", items_path %>から)</h6>
       <% else %>
         <table class="table text-center mt-3">
-          <thead class="thead-light">
+          <thead>
             <tr>
-              <th>商品</th>
+              <th>商品名</th>
               <th>単価（税込）</th>
               <th>数量</th>
               <th>小計</th>
@@ -26,7 +19,7 @@
             <% @cart_items.each do |cart_item| %>
               <tr>
                 <td>
-                  <%= link_to item_path(cart_item.item) do %>
+                  <%= link_to item_path(cart_item.item), class: "text-dark" do %>
                     <%= image_tag cart_item.item.image, class: "mx-1 img-wrap-cart", size: "60x60" %>
                     <%= cart_item.item.name %>
                   <% end %>
@@ -34,7 +27,7 @@
                 <td>
                   ¥<%= cart_item.item.excluding_tax_price.to_s(:delimited) %>
                 </td>
-                
+
                 <%= form_with model: cart_item do |f| %>
                   <td>
                     <%= f.select :amount, *[1..20] %>
@@ -47,16 +40,25 @@
             <% end %>
           </tbody>
         </table>
-        <table class="table text-center mt-3">
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-md-3">
+          <%= link_to "　注文画面へ　", new_order_path, class: "btn btn-outline-primary" %>
+        </div>
+        <div class="col-md-3 mr-1">
+          <%= link_to "カートを空にする",cart_items_destroy_all_path, method: :delete, "data-confirm" => "カートを空にしますか?", class: "btn btn-outline-danger" %>
+        </div>
+        <div class="col-md-4">
+        <table class="table">
           <tr>
-            <td colspan="2"></td>
-            <td class="h5">合計金額</td>
+            <th class="h5">合計金額</th>
             <td class="h5">¥<%= @total.round.to_s(:delimited) %></td>
           </tr>
         </table>
-      </div>
-      <div class="my-4 text-right">
-          <%= link_to "　注文画面へ　", new_order_path, class: "btn btn-primary" %>
+        </div>
       </div>
       <% end %>
 </div>
+
