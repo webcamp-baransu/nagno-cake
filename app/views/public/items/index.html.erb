@@ -1,7 +1,8 @@
 <div class="container">
-  <div class="row">
-    <h5>商品一覧</h5>
-  </div>
+      <h5>商品一覧</h5>
+  <div class="row justify-content-center">
+
+  
     <div class="item-wrap">
 	 	 	<% @items.each do |item| %>
 	 	 	  <div class="item-box">
@@ -11,7 +12,7 @@
             <%= image_tag "no_image", size: "200x200" %>
           <% end %>
           <div class="item-body">
-            <%= link_to item_path(item) do %>
+            <%= link_to item_path(item), class: "text-dark" do %>
             <%= item.name %>
             <% end %>
           </div>
@@ -21,5 +22,8 @@
         </div>
       <% end %>
     </div>
+    <div class="row justify-content-center">
     <%= paginate @items %>
+    </div>
+  </div>
 </div>

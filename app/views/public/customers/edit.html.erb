@@ -1,8 +1,7 @@
 <div class="container">
-    <div class="row">
-        <div class="col-md-2">
-          <h5>会員情報編集</h5>
-        </div>
+    <h5>会員情報編集</h5>
+    <div class="row justify-content-center mt-2">
+        <div class="col-md-8">
 
         <%= form_with model: @customer, url:customers_path, method: :patch, local: true do |f| %>
             <div class="form-group">
@@ -24,7 +23,7 @@
 
             <div class="form-group">
                 <%= f.label :address, "住所　　　　　" %>
-                <%= f.text_field :address, placeholder:"", :size=>"60" %>
+                <%= f.text_field :address, placeholder:"", :size=>"50" %>
             </div>
 
             <div class="form-group">
@@ -38,10 +37,11 @@
             </div>
 
            <div class="form-group">
-            <%= f.submit"編集内容を保存", class: 'btn btn-primary mx-5' %>
+            <%= f.submit"編集内容を保存", class: 'btn btn-outline-primary mx-5' %>
 
-            <%= link_to"退会する",customers_unsubscribe_path, class: 'btn btn-danger' %>
+            <%= link_to"退会する",customers_unsubscribe_path, class: 'btn btn-outline-danger' %>
           </div>
             <% end %>
+        </div>
     </div>
 </div>

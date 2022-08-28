@@ -1,9 +1,8 @@
-
 <div class="container">
-  <div class="col-md-10 col-lg-9 col-xl-7 mx-auto">
-   <div class="p-2 text-center">
-     <h5>支払情報入力</h5>
-   </div>
+  <h5>注文情報入力</h5>
+  <div class="row justify-content-center mt-2">
+  <div class="col-md-8">
+
    <div class="mx-auto">
       <%= form_with model: @order, url: orders_log_path, method: :post do |f| %>
       <%= f.hidden_field :postage, :value => 800 %>
@@ -60,9 +59,10 @@
 
            </tr>
            </table>
-
-               <%= f.submit "確認画面へ進む" %>
-
+           </div>
+        <div class="row justify-content-center mt-2">
+               <%= f.submit "確認画面へ進む", class: 'btn btn-outline-primary' %>
+        </div>
              </div>
              </div>
          <% end %>

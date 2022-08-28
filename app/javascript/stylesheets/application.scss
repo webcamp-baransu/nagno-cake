@@ -25,6 +25,10 @@ html, body {
   padding: 0;
 }
 
+main {
+  font-family: serif, cursive;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -47,4 +51,8 @@ footer {
   background: #ffe4b5;
   text-align: center;
   font-family: 'Caveat', cursive;
+}
+
+thead {
+  background: #ffe4b5;
 }

@@ -7,7 +7,6 @@ class Item < ApplicationRecord
   
   validates :name, presence: true
   validates :description, presence: true
-  validates :genre_id, presence: true
   validates :excluding_tax_price, presence: true
    def add_tax_price
     (self.excluding_tax_price * 1.1).round
